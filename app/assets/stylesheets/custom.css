@@ -1,0 +1,21 @@
+#sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 40px 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+.nav-item {
+  font-size: larger
+}
+
+#header {
+  background-color: black;
+  color: white;
+  text-align: center;
+}

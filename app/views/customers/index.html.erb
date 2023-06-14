@@ -1,0 +1,16 @@
+
+
+<div class="container">
+  <h1>Customers</h1>
+  <% @customers.each do |customer| %>
+    <div class="card mb-3", id="orderstable">
+      <div class="card-body">
+        <h5 class="card-title">Customer ID <%= customer.id %></h5>
+        <p class="card-text">User name: <%= @users.find_by(id: customer.user_id)%></p>
+        <p class="card-text">Address: <%= customer.address %></p>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+
