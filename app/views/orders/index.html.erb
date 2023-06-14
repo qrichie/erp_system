@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Orders</h1>
+  <% @orders.each do |order| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Order Number: <%= order.order_number %></h5>
+        <p class="card-text">Prize: <%= order.prize %></p>
+        <p class="card-text">Currency: <%= order.currency %></p>
+        <p class="card-text">Start Date: <%= order.start_date %></p>
+        <p class="card-text">End Date: <%= order.end_date %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
