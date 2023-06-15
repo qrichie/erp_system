@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_110040) do
     t.integer "customer_id", null: false
     t.integer "processor_id", null: false
     t.string "order_number"
-    t.datetime "start_date"
+    t.datetime "start_date" 
     t.datetime "end_date"
     t.decimal "prize"
     t.string "currency"
