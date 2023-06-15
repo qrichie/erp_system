@@ -7,17 +7,12 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
-    puts "Current User: #{current_user.inspect}"
-    @order.customer = current_user # Set the customer to the current user
     @order.processor = User.find(params[:order][:processor_id]) # Set the processor based on the selected ID
-
-    # raise @order.inspect
 
     if @order.save
       redirect_to @order, notice: 'Order was successfully created.'
     else
       render :new
-      # puts @order.errors.full_messages
     end
   end
 

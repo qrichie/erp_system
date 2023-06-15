@@ -5,8 +5,8 @@
   <% @customers.each do |customer| %>
     <div class="card mb-3", id="orderstable">
       <div class="card-body">
-        <h5 class="card-title">Customer ID <%= customer.id %></h5>
-        <p class="card-text">User name: <%= @users.find_by(id: customer.user_id)%></p>
+        <h5 class="card-title"><%= link_to "Customer ID #{ customer.id } ", customer_path(customer) %></h5>
+        <p class="card-text">User name: <%= @users.find_by(id: customer.user_id).last_name%></p>
         <p class="card-text">Address: <%= customer.address %></p>
 
       </div>

@@ -5,4 +5,9 @@ def index
   @users = User.all
 end
 
+def show
+  @customer = Customer.find(params[:id])
+  @user = User.find_by(id: @customer[:user_id])
+end
+
 end

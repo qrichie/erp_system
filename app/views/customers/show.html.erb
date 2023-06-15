@@ -1,0 +1,23 @@
+
+<div class="container">
+  <h1>Customer <%= @customer.id %></h1>
+    <div class="card mb-3", id="orderstable">
+      <div class="card-body">
+      <h5 class="card-title"><%= "#{@user.first_name} #{@user.last_name}" %></h5>
+      <p class="card-text">E-Mail: <%= @user.email%></p>
+        <p class="card-text">Address: <%= @customer.address %></p>
+        <p class="card-text">Birthday: <%= @user.birthday%></p>
+        <p class="card-text">Department: <%= @user.department%></p>
+        <% @user.orders.each do |order| %>
+          <p>Order Number: <%= order.order_number %></p>
+          <p>Start Date: <%= order.start_date %></p>
+          <p>End Date: <%= order.end_date %></p>
+          <p>Prize: <%= order.prize %></p>
+          <p>Currency: <%= order.currency %></p>
+          <hr>
+        <% end %>
+
+
+      </div>
+    </div>
+</div>
