@@ -7,17 +7,24 @@
       <p class="card-text">E-Mail: <%= @user.email%></p>
         <p class="card-text">Address: <%= @customer.address %></p>
         <p class="card-text">Birthday: <%= @user.birthday%></p>
-        <p class="card-text">Department: <%= @user.department%></p>
-        <% @user.orders.each do |order| %>
-          <p>Order Number: <%= order.order_number %></p>
-          <p>Start Date: <%= order.start_date %></p>
-          <p>End Date: <%= order.end_date %></p>
-          <p>Prize: <%= order.prize %></p>
-          <p>Currency: <%= order.currency %></p>
-          <hr>
-        <% end %>
-
-
+        <table class="table">
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customer.orders.each do |order| %>
+            <tr>
+              <td><%= order.order_number %></td>
+              <td><button type="button" class="btn btn-primary">
+                <%= link_to "Show Details", order_path(order), class: "custom-button" %>
+              </button></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
       </div>
     </div>
 </div>

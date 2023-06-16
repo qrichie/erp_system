@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Processor <%= @processor.id %></h1>
+    <div class="card mb-3" id="orderstable">
+      <div class="card-body">
+        <h5 class="card-title"><%= "#{@user.first_name} #{@user.last_name}" %></h5>
+        <p class="card-text">E-Mail: <%= @user.email %></p>
+        <p class="card-text">Birthday: <%= @user.birthday %></p>
+        <p class="card-text">Department: <%= @user.department %></p>
+
+        <table class="table">
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @processor.orders.each do |order| %>
+            <tr>
+              <td><%= order.order_number %></td>
+              <td>
+                <button type="button" class="btn btn-primary custom-button">
+                  <%= link_to "Show Details", order_path(order), class: "custom-button" %>
+                </button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+      </div>
+    </div>
+</div>

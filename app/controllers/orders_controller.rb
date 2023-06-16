@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @order.processor_id = params[:processor_id] if params[:processor_id].present?
+
   end
 
   def create

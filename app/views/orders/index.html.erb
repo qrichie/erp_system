@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Orders</h1>
+<h1>Orders</h1>
   <% @orders.each do |order| %>
     <div class="card mb-3", id="orderstable">
       <div class="card-body">
@@ -11,5 +11,6 @@
       </div>
     </div>
   <% end %>
+  <%= link_to "Add Order", new_order_path, class: "btn btn-primary" %>
 </div>
 

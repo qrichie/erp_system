@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :customers
+  resources :processors
 
   root "home#index"
 

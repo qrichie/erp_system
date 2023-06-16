@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   after_create :create_customer_if_customer
 
+
   private
 
   def create_customer_if_customer
@@ -19,5 +20,6 @@ class User < ApplicationRecord
       Processor.create(user_id: id)
     end
   end
+
 
 end
