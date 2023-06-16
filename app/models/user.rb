@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
  
   has_many :orders
+  has_many :processors
 
   after_create :create_customer_if_customer
 
@@ -14,6 +15,8 @@ class User < ApplicationRecord
   def create_customer_if_customer
     if is_customer
       Customer.create(user_id: id)
+    else 
+      Processor.create(user_id: id)
     end
   end
 

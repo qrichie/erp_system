@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_15_093349) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_063614) do
   create_table "customers", force: :cascade do |t|
     t.string "address"
     t.integer "user_id", null: false
@@ -36,9 +36,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_093349) do
   end
 
   create_table "processors", force: :cascade do |t|
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_processors_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_093349) do
     t.string "department"
     t.datetime "birthday"
     t.boolean "is_customer"
+    t.string "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -62,4 +64,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_093349) do
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "processors"
   add_foreign_key "orders", "users"
+  add_foreign_key "processors", "users"
 end
