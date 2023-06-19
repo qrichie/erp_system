@@ -6,6 +6,10 @@ class OrdersController < ApplicationController
 
   end
 
+  def index
+    @orders = Order.all
+  end
+
   def create
     @order = Order.new(order_params)
     authorize @order
@@ -22,9 +26,31 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
-  def index
-    @orders = Order.all
+  def edit
+    @order = Order.find_by(id: params[:id])
+    
   end
+
+  def update
+    @order = Order.find_by(id: params[:id])
+    authorize @order
+
+    if @order.update(order_params)
+      redirect_to @order, notice: 'Order was successfully updated.'
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @order = Order.find(params[:id])
+    authorize @order
+  
+    @order.destroy
+    redirect_to orders_path, notice: 'Order was successfully deleted.'
+  end
+
+  
 
   private
 

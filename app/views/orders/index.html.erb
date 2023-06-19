@@ -8,6 +8,10 @@
         <p class="card-text">Currency: <%= order.currency %></p>
         <p class="card-text">Start Date: <%= order.start_date %></p>
         <p class="card-text">End Date: <%= order.end_date %></p>
+        <p><%= link_to "Update", edit_order_path(order), class: "btn btn-primary" %>
+        <%= button_to "Delete", order_path(order), class: "btn btn-danger", method: :delete, data: { turbo: "false" } %>
+        </p>
+
       </div>
     </div>
   <% end %>
