@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-
+    authorize @order
     @order.processor = User.find(params[:order][:processor_id]) # Set the processor based on the selected ID
 
     if @order.save
