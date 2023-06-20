@@ -1,45 +1,52 @@
-<h1><%= "Hello #{current_user.first_name}!" %></h1>
+<% if user_signed_in? %>
+  <h1><%= "Hello #{current_user.first_name}!" %></h1>
 
-
-<% if current_user.is_customer %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Create new order</th>
-        <th scope="col"><%= link_to "new order", new_order_path, class: "btn btn-primary"%></br>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Show your orders</th>
-        <td><%= link_to "show your orders", customer_path(current_user), class: "btn btn-primary" %></br>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <% if current_user.is_customer %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Create new order</th>
+          <th scope="col"><%= link_to "new order", new_order_path, class: "btn btn-primary"%></br>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Show your orders</th>
+          <td><%= link_to "show your orders", customer_path(current_user), class: "btn btn-primary" %></br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% else %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Create new order</th>
+          <th scope="col"><%= link_to "new order", new_order_path, class: "btn btn-primary"%></br>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Show all orders</th>
+          <td><%= link_to "show all orders", orders_path, class: "btn btn-primary" %></br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Show customers</th>
+          <td><%= link_to "show all customers", customers_path, class: "btn btn-primary" %></br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>  
+  <%= Customer.find_by(user_id: params[:id]) %>
 <% else %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Create new order</th>
-        <th scope="col"><%= link_to "new order", new_order_path, class: "btn btn-primary"%></br>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Show all orders</th>
-        <td><%= link_to "show all orders", orders_path, class: "btn btn-primary" %></br>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Show customers</th>
-        <td><%= link_to "show all customers", customers_path, class: "btn btn-primary" %></br>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>  
+  <h1>Welcome to your ERP app</h1>
+  <p>Please sign in to get started.</p>
+
+
+<% end %>
 
 
