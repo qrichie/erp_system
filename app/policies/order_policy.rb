@@ -6,15 +6,15 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def create?
-    user.is_customer
+    !user.is_customer
   end
 
   def update?
-    user.is_customer
+    !user.is_customer
   end
 
   def destroy?
-    user.is_customer
+    !user.is_customer
   end
 
 

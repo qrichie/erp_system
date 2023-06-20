@@ -1,3 +1,5 @@
+<%= render "layouts/flash" %> 
+
 <%= form_with(model: @order, url: orders_path, local: true) do |form| %>
   <div class="form-group">
     <%= form.label :customer_id, 'Customer ID' %>

@@ -1,16 +1,18 @@
 <div class="container">
 <h1>Orders</h1>
+  <%= render "layouts/flash" %> 
   <% @orders.each do |order| %>
     <div class="card mb-3", id="orderstable">
       <div class="card-body">
-        <h5 class="card-title">Order Number: <%= order.order_number %></h5>
+        <h5 class="card-title"><%= link_to "Order Number #{ order.order_number }", order_path(order) %></h5>
         <p class="card-text">Prize: <%= order.prize %></p>
         <p class="card-text">Currency: <%= order.currency %></p>
         <p class="card-text">Start Date: <%= order.start_date %></p>
         <p class="card-text">End Date: <%= order.end_date %></p>
-        <p><%= link_to "Update", edit_order_path(order), class: "btn btn-primary" %>
-        <%= button_to "Delete", order_path(order), class: "btn btn-danger", method: :delete, data: { turbo: "false" } %>
-        </p>
+        <div class="d-flex justify-content-start">
+        <%= link_to "Update", edit_order_path(order), class: "btn btn-primary mr-2" %>
+        <%= button_to "Delete", order_path(order, redirect_to: orders_path), class: "btn btn-danger", method: :delete, data: { turbo: "false" } %>
+        </div>
 
       </div>
     </div>
