@@ -1,6 +1,45 @@
-<h1>HOMEPAGE</h1>
+<h1><%= "Hello #{current_user.first_name}!" %></h1>
 
-<%= link_to "sign up", new_user_registration_path %></br>
-<%= link_to "sign in", user_session_path %></br>
-<%= link_to "new order", new_order_path %></br>
-<%= link_to "show all orders", orders_path %></br>
+
+<% if current_user.is_customer %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Create new order</th>
+        <th scope="col"><%= link_to "new order", new_order_path, class: "btn btn-primary"%></br>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Show your orders</th>
+        <td><%= link_to "show your orders", customer_path(current_user), class: "btn btn-primary" %></br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% else %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Create new order</th>
+        <th scope="col"><%= link_to "new order", new_order_path, class: "btn btn-primary"%></br>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Show all orders</th>
+        <td><%= link_to "show all orders", orders_path, class: "btn btn-primary" %></br>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Show customers</th>
+        <td><%= link_to "show all customers", customers_path, class: "btn btn-primary" %></br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>  
+
+
