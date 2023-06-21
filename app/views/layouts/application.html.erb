@@ -2,6 +2,10 @@
 <html>
   <head>
     <title>ErpSystem</title>
+    <div class="navbar sticky-top bg-dark flex-md-nowrap p-o shadow" id="header">
+      <h1><%= link_to "ERP System Inc.", root_path, style: "text-decoration: none; color: white" %></h1>
+    </div>
+    
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,18 +19,27 @@
   </head>
 
   <body>
-    <header>
-      <div class="navbar sticky-top bg-dark flex-md-nowrap p-o shadow" id="header">
-        <h1><%= link_to "ERP System Inc.", root_path, style: "text-decoration: none; color: white" %></h1>
-      </div>
-    </header>
-
-
     <div class="container">
       <div class="row">
         <%= render 'layouts/navigation' %>
         <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 content">
           <%= yield %>
+
+
+            <div
+            class="modal"
+            tabindex="-1"
+            data-controller="modal"
+            data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close"
+            >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <%= turbo_frame_tag "newordermodal" %>
+              </div>
+            </div>
+          </div>
+
+
         </main>
       </div>
     </div>
