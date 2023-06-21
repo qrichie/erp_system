@@ -7,7 +7,7 @@ class ProcessorsController < ApplicationController
 
   def show
     @processor = Processor.find_by(id: params[:id])
-    @user = User.find_by(id: params[:id])
+    @user = @processor.user
   end
 
 end

@@ -6,9 +6,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
  
   has_many :orders
-  has_many :processors
+  has_one :processor
+  has_one :customer
 
   after_create :create_customer_if_customer
+
+  validates :first_name, :last_name, presence: true
 
 
   private
