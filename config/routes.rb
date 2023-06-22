@@ -4,8 +4,8 @@ Rails.application.routes.draw do
  
   resources :orders
 
-  resources :customers
-  resources :processors
+  resources :customers, only: [:index, :show]
+  resources :processors, only: [:index, :show]
 
   root "home#index"
 
