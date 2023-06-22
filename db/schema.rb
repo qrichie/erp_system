@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_124619) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_081258) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "customers", force: :cascade do |t|
     t.string "address"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "processor_id", null: false
     t.string "order_number"
     t.datetime "start_date"
     t.datetime "end_date"
@@ -29,7 +30,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_124619) do
     t.string "currency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
+    t.bigint "customer_id", null: false
+    t.bigint "processor_id", null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["processor_id"], name: "index_orders_on_processor_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -38,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_124619) do
   create_table "processors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_processors_on_user_id"
   end
 
