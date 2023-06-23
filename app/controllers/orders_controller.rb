@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_action :set_find_order, only: [:show, :edit, :update, :destroy]
+
   def new
     @order = Order.new
   end
@@ -21,16 +23,12 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
   end
 
   def edit
-    @order = Order.find_by(id: params[:id])
-    
   end
 
   def update
-    @order = Order.find_by(id: params[:id])
     authorize @order
 
     if @order.update(order_params)
@@ -41,7 +39,6 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order = Order.find(params[:id])
     authorize @order
   
     @order.destroy
@@ -54,6 +51,10 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:customer_id, :processor_id, :order_number, :start_date, :end_date, :prize, :currency)
+  end
+
+  def set_find_order
+    @order = Order.find_by(id: params[:id])
   end
 
 end
