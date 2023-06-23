@@ -31,7 +31,7 @@ Verbesserungen:
 	? html/css ids -> nur wo sinnvoll (orderstable in customers index) 
 	- Helper in models nutzen (customers show, first_name and last_name)
 	✔️ form_with in views -> model angeben reicht wenn alles nach rails standard (orders _form)
-	- nutzen von simple_form generell in views
+	✔️ nutzen von simple_form generell in views
 	/ Turbo-Frames nutzen wie im Beispiel (-> bisher nicht geklappt)
 	✔️ In views (orders show zB) nicht jedes mal Flash einbauen sondern ins Grundlayout
 	x user registrations new -> validierung muss in ActiveRecord ! (von devise automatisch erstellt)

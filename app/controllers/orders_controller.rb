@@ -1,11 +1,10 @@
 class OrdersController < ApplicationController
 
   before_action :set_find_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_customers_and_processors, only: [:new, :edit]
 
   def new
     @order = Order.new
-    @customers = Customer.all
-    @processors = Processor.all
   end
 
   def index
@@ -57,6 +56,11 @@ class OrdersController < ApplicationController
 
   def set_find_order
     @order = Order.find_by(id: params[:id])
+  end
+
+  def set_customers_and_processors
+    @customers = Customer.all
+    @processors = Processor.all
   end
 
 end
