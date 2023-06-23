@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
 
+  include Pagy::Backend
+
+
   before_action :set_find_order, only: [:show, :edit, :update, :destroy]
   before_action :set_customers_and_processors, only: [:new, :edit]
 
@@ -8,7 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = policy_scope(Order)
+    @pagy, @orders = pagy(policy_scope(Order), items: 6)
   end
 
   def create

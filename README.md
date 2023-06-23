@@ -36,7 +36,7 @@ Verbesserungen:
 	✔️ In views (orders show zB) nicht jedes mal Flash einbauen sondern ins Grundlayout
 	x user registrations new -> validierung muss in ActiveRecord ! (von devise automatisch erstellt)
 	- generell user zurückbauen (nur anlegen)
-  - pagy für orders
+  ✔️ pagy für orders
 	
 	- Große Aufgabe: Postgres nutzen statt sqlite3
 		✔️ Installation 
