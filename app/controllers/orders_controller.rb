@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @customers = Customer.all
+    @processors = Processor.all
   end
 
   def index

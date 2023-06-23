@@ -1,6 +1,13 @@
 <div class="container">
-<h1>Orders</h1>
 
+  <div class="row">
+    <div class="col text-left my-3 ml-2">
+      <h1>Orders</h1>
+    </div>
+    <div class="col text-right my-3 mr-4">
+      <%= link_to "Add Order", new_order_path, class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
   <% @orders.each do |order| %>
     <div class="card mb-3", id="orderstable">
       <div class="card-body">
@@ -16,7 +23,7 @@
       </div>
     </div>
   <% end %>
-  <%= link_to "Add Order", new_order_path, class: "btn btn-primary" %>
+
 </div>
 
 
