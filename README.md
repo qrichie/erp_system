@@ -21,7 +21,7 @@ Verbesserungen:
 	- customers controller -> selbe id für customer und user 
 	✔️ in controllern mehr mit set_object arbeiten
 	- translations erklären und einbauen
-	- authorize vs. policy_scope in controller erklären
+	✔️ authorize vs. policy_scope in controller einbauen
 	✔️ orders controller -> in new order.processor_id vs. build erklären 
 	✔️ processors controller -> selbe id für customer und user 
 	✔️ order model -> add_order_to_user ?? wahrscheinlich besser build 
@@ -36,6 +36,7 @@ Verbesserungen:
 	✔️ In views (orders show zB) nicht jedes mal Flash einbauen sondern ins Grundlayout
 	x user registrations new -> validierung muss in ActiveRecord ! (von devise automatisch erstellt)
 	- generell user zurückbauen (nur anlegen)
+  - pagy für orders
 	
 	- Große Aufgabe: Postgres nutzen statt sqlite3
 		✔️ Installation 

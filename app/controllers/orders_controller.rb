@@ -8,17 +8,17 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = policy_scope(Order)
   end
 
   def create
     @order = Order.new(order_params)
-    authorize @order
-    @order.processor = User.find(params[:order][:processor_id]) # Set the processor based on the selected ID
+    @order.processor = User.find_by(id: params[:order][:processor_id]) # Set the processor based on the selected ID
 
     if @order.save
       redirect_to @order, notice: 'Order was successfully created.'
     else
+      flash.now[:alert] = "Alert"
       render :new
     end
   end

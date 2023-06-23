@@ -5,9 +5,9 @@ class OrderPolicy < ApplicationPolicy
     @order = order
   end
 
-  def create?
-    !user.is_customer
-  end
+  # def create?
+  #   !user.is_customer
+  # end
 
   def update?
     !user.is_customer
@@ -15,6 +15,16 @@ class OrderPolicy < ApplicationPolicy
 
   def destroy?
     !user.is_customer
+  end
+
+  class Scope < Scope
+    def resolve
+      if user.is_customer
+        scope.where(id: @user.customer.orders.ids)
+      else
+        scope.all
+      end
+    end
   end
 
 

@@ -1,6 +1,8 @@
 <%= simple_form_for @order do |form| %>
-    <%= form.input :customer_id, as: :select, collection: @customers.collect {|c| [c.user.first_name, c.id] }, class: "form-group" %>
-    <%= form.input :processor_id, as: :select, collection: @processors.collect {|p| [p.user.first_name, p.id] }, class: "form-group" %>
+    <% if @customers&.any? %>
+        <%= form.input :customer_id, as: :select, collection: @customers.collect {|c| [c.user.first_name, c.id] }, class: "form-group" %>
+        <%= form.input :processor_id, as: :select, collection: @processors.collect {|p| [p.user.first_name, p.id] }, class: "form-group" %>
+    <% end %>
     <%= form.input :order_number, class: "form-group" %>
     <%= form.input :start_date, as: :date, class: "form-group" %>
     <%= form.input :end_date, as: :date, class: "form-group" %>

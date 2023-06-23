@@ -13,7 +13,7 @@
       <tbody>
         <tr>
           <th scope="row">Show your orders</th>
-          <td><%= link_to "show your orders", customer_path(current_user), class: "btn btn-primary" %></br>
+          <td><%= link_to "show your orders", orders_path, class: "btn btn-primary" %></br>
           </td>
         </tr>
       </tbody>
@@ -41,7 +41,6 @@
       </tbody>
     </table>
   <% end %>  
-  <%= Customer.find_by(user_id: params[:id]) %>
 <% else %>
   <h1>Welcome to your ERP app</h1>
   <p>Please sign in to get started.</p>
