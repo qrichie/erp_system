@@ -1,12 +1,12 @@
 <%= simple_form_for @order do |form| %>
     <% if @customers&.any? %>
-        <%= form.input :customer_id, as: :select, collection: @customers.collect {|c| [c.user.first_name, c.id] }, class: "form-group" %>
-        <%= form.input :processor_id, as: :select, collection: @processors.collect {|p| [p.user.first_name, p.id] }, class: "form-group" %>
+        <%= form.input :customer_id, label: t("customer_id"), as: :select, collection: @customers.collect {|c| [c.user.first_name, c.id] }, class: "form-group" %>
+        <%= form.input :processor_id, label: t("processor_id"), as: :select, collection: @processors.collect {|p| [p.user.first_name, p.id] }, class: "form-group" %>
     <% end %>
-    <%= form.input :order_number, class: "form-group" %>
-    <%= form.input :start_date, as: :date, class: "form-group" %>
-    <%= form.input :end_date, as: :date, class: "form-group" %>
-    <%= form.input :prize, class: "form-group" %>
-    <%= form.input :currency, as: :select, collection: ["euro", "dollar"], class: "form-group" %>
-    <%= form.button :submit, class: "btn btn-primary" %>
+    <%= form.input :order_number, label: t("order_number"),class: "form-group" %>
+    <%= form.input :start_date, label: t("start_date"), as: :date, class: "form-group" %>
+    <%= form.input :end_date, label: t(".end_date"), as: :date, class: "form-group" %>
+    <%= form.input :prize, label: t("prize"), class: "form-group" %>
+    <%= form.input :currency, label: t("currency"), as: :select, collection: Currency.currencies.keys, class: "form-group" %>
+    <%= form.button :submit, value: t("create_order"), class: "btn btn-primary" %>
 <% end %>

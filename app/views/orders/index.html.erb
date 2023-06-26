@@ -3,23 +3,23 @@
   <div class="container">
     <div class="row">
       <div class="col text-left my-3 ml-2">
-        <h1>Orders</h1>
+        <h1><%= t("orders") %></h1>
       </div>
       <div class="col text-right my-3 mr-4">
-        <%= link_to "Add Order", new_order_path, class: "btn btn-success btn-lg" %>
+        <%= link_to t("add_order"), new_order_path, class: "btn btn-success btn-lg" %>
       </div>
     </div>
     <% @orders.each do |order| %>
       <div class="card mb-3", id="orderstable">
         <div class="card-body">
-          <h5 class="card-title"><%= link_to "Order Number #{ order.order_number }", order_path(order) %></h5>
-          <p class="card-text">Prize: <%= order.prize %></p>
-          <p class="card-text">Currency: <%= order.currency %></p>
-          <p class="card-text">Start Date: <%= order.start_date %></p>
-          <p class="card-text">End Date: <%= order.end_date %></p>
+        <h5 class="card-title"><%= link_to "#{t('order_number')}: #{order.order_number}", order_path(order) %></h5>
+        <p class="card-text"><%= t("prize") %>: <%= order.prize %></p>
+          <p class="card-text"><%= t("currency") %>: <%= order.currency %></p>
+          <p class="card-text"><%= t("start_date") %>: <%= order.start_date %></p>
+          <p class="card-text"><%= t("end_date") %>: <%= order.end_date %></p>
           <div class="d-flex justify-content-start">
           <%= link_to "Update", edit_order_path(order), class: "btn btn-primary mr-2" %>
-          <%= button_to "Delete", order_path(order, redirect_to: orders_path), class: "btn btn-danger", method: :delete, data: { confirm: "are you sure?", turbo: "false" } %>
+          <%= button_to t("delete"), order_path(order, redirect_to: orders_path), class: "btn btn-danger", method: :delete, data: { confirm: "are you sure?", turbo: "false" } %>
           </div>
         </div>
       </div>

@@ -1,0 +1,41 @@
+de:
+  orders: "Aufträge"
+  customer_id: "Kunden ID"
+  processor_id: "Bearbeiter ID"
+  order_number: "Bestellungsnummer"
+  start_date: "Startdatum"
+  end_date: "Enddatum"
+  prize: "Preis"
+  currency: "Währung"
+  edit: "Bearbeiten"
+  delete: "Löschen"
+  show_all_orders: "Alle Aufträge anzeigen"
+  
+  customers: "Kunden"
+  processors: "Bearbeiter"
+  order_number: "Auftragsnummer"
+  
+  create_order: "Auftrag erstellen"
+  add_order: "Neuen Auftrag hinzufügen"
+  new_order: "Neuer Auftrag"
+  show_your_orders: "Zu deinen Aufträgen"
+  show_orders_button: "Aufträge anzeigen"
+  show_customers_button: "Kunden anzeigen"
+  
+  home:
+    index:
+      hello: "Hallo, %{name}"
+      create: "Neue Aufträge erstellen:"
+      show_orders: "Zur Auftragsübersicht:"
+      show_customers: "Zur Kundenübersicht:"
+      welcome: "Willkommen in der ERP-App."
+      please: "Melde dich bitte an um die App zu nutzen."
+  
+    show:
+      order_details: "Auftragdetails"
+      orders: "Aufträge"
+
+
+   
+
+

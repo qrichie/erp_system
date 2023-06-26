@@ -18,7 +18,6 @@ Layout ala Bootstrap, Seitennavigation mit einfachen Links
 
 Verbesserungen:
   ✔️ in routes -> nutzen von only: [show] 
-	- customers controller -> selbe id für customer und user 
 	✔️ in controllern mehr mit set_object arbeiten
 	- translations erklären und einbauen
 	✔️ authorize vs. policy_scope in controller einbauen

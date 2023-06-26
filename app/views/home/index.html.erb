@@ -1,19 +1,20 @@
 <% if user_signed_in? %>
-  <h1><%= "Hello #{current_user.first_name}!" %></h1>
+  <h1><%= t(".hello", name: current_user.first_name) %>!</h1>
+
 
   <% if current_user.is_customer %>
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Create new order</th>
-          <th scope="col"><%= link_to "new order", new_order_path, class: "btn btn-primary"%></br>
+          <th scope="col"><%= t("new_order") %></th>
+          <th scope="col"><%= link_to t("new_order"), new_order_path, class: "btn btn-primary"%></br>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">Show your orders</th>
-          <td><%= link_to "show your orders", orders_path, class: "btn btn-primary" %></br>
+          <th scope="row"><%= t(".show_orders") %></th>
+          <td><%= link_to t("show_your_orders"), orders_path, class: "btn btn-primary" %></br>
           </td>
         </tr>
       </tbody>
@@ -22,28 +23,28 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Create new order</th>
-          <th scope="col"><%= link_to "new order", new_order_path, class: "btn btn-primary"%></br>
+          <th scope="col"><%= t(".create") %></th>
+          <th scope="col"><%= link_to t("new_order"), new_order_path, class: "btn btn-primary"%></br>
           </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">Show all orders</th>
-          <td><%= link_to "show all orders", orders_path, class: "btn btn-primary" %></br>
+          <th scope="row"><%= t(".show_orders") %></th>
+          <td><%= link_to t("show_orders_button"), orders_path, class: "btn btn-primary" %></br>
           </td>
         </tr>
         <tr>
-          <th scope="row">Show customers</th>
-          <td><%= link_to "show all customers", customers_path, class: "btn btn-primary" %></br>
+          <th scope="row"><%= t(".show_customers") %></th>
+          <td><%= link_to t("show_customers_button"), customers_path, class: "btn btn-primary" %></br>
           </td>
         </tr>
       </tbody>
     </table>
   <% end %>  
 <% else %>
-  <h1>Welcome to your ERP app</h1>
-  <p>Please sign in to get started.</p>
+  <h1><%= t(".welcome") %></h1>
+  <p><%= t(".please") %></p>
 
 
 <% end %>

@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   include Pagy::Backend
 
 
-  before_action :set_find_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :set_customers_and_processors, only: [:new, :edit]
 
   def new
@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :processor_id, :order_number, :start_date, :end_date, :prize, :currency)
   end
 
-  def set_find_order
+  def set_order
     @order = Order.find_by(id: params[:id])
   end
 
