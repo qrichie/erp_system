@@ -35,9 +35,9 @@
 
         <a class="nav-link">
           <% if I18n.locale == I18n.default_locale %>
-            <div><%= link_to "German", { :lang=>'de' }, class: "ml-2" %></div>
+            <div><%= link_to "German", { :lang=>'de' }, class: "ml-2 active" %></div>
           <% else %>
-            <div><%= link_to "English", { :lang=>'en' }, class: "ml-2" %>
+            <div><%= link_to "English", { :lang=>'en' }, class: "ml-2 active" %>
           <%end%>
         </ul>
           <a class="nav-link">

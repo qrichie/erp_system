@@ -38,3 +38,4 @@ en:
   log_in: "log in"
   register: "register"
   show_details: "show details"
+  order_number: "order number"

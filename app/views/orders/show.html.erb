@@ -1,55 +1,57 @@
-<div class="container col-8">
-  <div class="card">
-    <div class="card-body">
-      <h1 class="card-title"><%= t(".order_details") %></h1>
-      <div class="row">
-        <div class="col-4">
-          <strong><%= t("order_number") %>:</strong>
+<%= turbo_frame_tag "modal" do %>
+  <div class="container col-8">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title"><%= t(".order_details") %></h1>
+        <div class="row">
+          <div class="col-4">
+            <strong><%= t("order_number") %>:</strong>
+          </div>
+          <div class="col-8">
+            <%= @order.order_number %>
+          </div>
         </div>
-        <div class="col-8">
-          <%= @order.order_number %>
+        <div class="row">
+          <div class="col-4">
+            <strong><%= t("start_date") %>:</strong>
+          </div>
+          <div class="col-8">
+            <%= @order.start_date %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <strong><%= t("start_date") %>:</strong>
+        <div class="row">
+          <div class="col-4">
+            <strong><%= t("end_date") %>:</strong>
+          </div>
+          <div class="col-8">
+            <%= @order.end_date %>
+          </div>
         </div>
-        <div class="col-8">
-          <%= @order.start_date %>
+        <div class="row">
+          <div class="col-4">
+            <strong><%= t("prize") %>:</strong>
+          </div>
+          <div class="col-8">
+            <%= @order.prize %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <strong><%= t("end_date") %>:</strong>
-        </div>
-        <div class="col-8">
-          <%= @order.end_date %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <strong><%= t("prize") %>:</strong>
-        </div>
-        <div class="col-8">
-          <%= @order.prize %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <strong><%= t("currency") %>:</strong>
-        </div>
-        <div class="col-8">
-          <%= @order.currency %>
-        </div> 
-        <div class="d-flex justify-content-end">
-        <%= link_to t("edit"), edit_order_path(@order), class: "btn btn-primary mr-2" %>
-        <%= button_to t("delete"), order_path(@order), class: "btn btn-danger", method: :delete, data: { turbo: "false" } %>
-        </div>
-        <div class="d-flex justify-content-end">
-          <%= link_to t("show_all_orders"), orders_path, class: "btn btn-secondary mt-2" %>
+        <div class="row">
+          <div class="col-4">
+            <strong><%= t("currency") %>:</strong>
+          </div>
+          <div class="col-8">
+            <%= @order.currency %>
+          </div> 
+          <div class="d-flex justify-content-end">
+          <%= link_to t("edit"), edit_order_path(@order), class: "btn btn-primary mr-2" %>
+          <%= button_to t("delete"), order_path(@order), class: "btn btn-danger", method: :delete, data: { turbo: "false" } %>
+          </div>
+          <div class="d-flex justify-content-end">
+            <%= link_to t("show_all_orders"), orders_path, class: "btn btn-secondary mt-2" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 

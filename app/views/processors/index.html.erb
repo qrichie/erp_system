@@ -3,7 +3,8 @@
   <% @processors.each do |processor| %>
     <div class="card mb-3", id="orderstable">
       <div class="card-body">
-        <h5 class="card-title"><%= link_to "#{t("processor")} ID #{ processor.id } ", processor_path(processor) %></h5>
+        <h5 class="card-title"><%= link_to "#{t("processor")} ID #{ processor.id } ", processor_path(processor), data: { turbo_frame: 'processor_frame' } %></h5>
+        <%= turbo_frame_tag 'processor_frame' %>
         <p class="card-text"><%= t("user_name") %>: <%= @users.find_by(id: processor.user_id)&.first_name %>
         <%= @users.find_by(id: processor.user_id)&.last_name %>
         </p>

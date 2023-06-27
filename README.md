@@ -19,7 +19,7 @@ Layout ala Bootstrap, Seitennavigation mit einfachen Links
 Verbesserungen:
   ✔️ in routes -> nutzen von only: [show] 
 	✔️ in controllern mehr mit set_object arbeiten
-	- translations erklären und einbauen
+	✔️ translations erklären und einbauen
 	✔️ authorize vs. policy_scope in controller einbauen
 	✔️ orders controller -> in new order.processor_id vs. build erklären 
 	✔️ processors controller -> selbe id für customer und user 

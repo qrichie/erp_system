@@ -12,12 +12,41 @@
     <% @orders.each do |order| %>
       <div class="card mb-3", id="orderstable">
         <div class="card-body">
-        <h5 class="card-title"><%= link_to "#{t('order_number')}: #{order.order_number}", order_path(order) %></h5>
+        <h5 class="card-title"><%= link_to "#{t('order_number')}: #{order.order_number}", order_path(order), data: { turbo_frame: 'modal'} %></h5>
         <p class="card-text"><%= t("prize") %>: <%= order.prize %></p>
           <p class="card-text"><%= t("currency") %>: <%= order.currency %></p>
           <p class="card-text"><%= t("start_date") %>: <%= order.start_date %></p>
           <p class="card-text"><%= t("end_date") %>: <%= order.end_date %></p>
           <div class="d-flex justify-content-start">
+
+   
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" >
+            Launch demo modal
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= turbo_frame_tag "modal" %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+
+
           <%= link_to "Update", edit_order_path(order), class: "btn btn-primary mr-2" %>
           <%= button_to t("delete"), order_path(order, redirect_to: orders_path), class: "btn btn-danger", method: :delete, data: { confirm: "are you sure?", turbo: "false" } %>
           </div>
@@ -26,8 +55,5 @@
     <% end %>
   </div>
   <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
-
-
-
 
 
