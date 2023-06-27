@@ -37,3 +37,4 @@ en:
   processor: "Processor"
   log_in: "log in"
   register: "register"
+  show_details: "show details"

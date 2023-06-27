@@ -32,20 +32,27 @@
           <% end %>
         <% end %>
         <hr class="my-3">
-        <li class="nav-item">
-          <a class="nav-link">
-          <% if signed_in? %>
-            <%= link_to current_user.email, edit_user_registration_path %>
-                <%= button_to "Log out", destroy_user_session_path, class: "btn btn-primary", method: :delete, data: { turbo: "false" } %>
+
+        <a class="nav-link">
+          <% if I18n.locale == I18n.default_locale %>
+            <div><%= link_to "German", { :lang=>'de' }, class: "ml-2" %></div>
           <% else %>
-              <%= link_to "#{t("log_in")}", new_user_session_path, class: "btn btn-primary" %>
-              <%= link_to "#{t("register")}", new_user_registration_path, class: "btn btn-primary" %>
+            <div><%= link_to "English", { :lang=>'en' }, class: "ml-2" %>
+          <%end%>
+        </ul>
+          <a class="nav-link">
+            <% if signed_in? %>
+              <%= link_to current_user.email, edit_user_registration_path, class: "ml-3" %>
+              <%= button_to "Log out", destroy_user_session_path, class: "btn btn-primary ml-2", method: :delete, data: { turbo: "false" } %>
+            <% else %>
+                <%= link_to "#{t("log_in")}", new_user_session_path, class: "btn btn-primary" %>
+                <%= link_to "#{t("register")}", new_user_registration_path, class: "btn btn-primary" %>
             <% end %>
           </a>
-        </li>
-      </ul>
+        </ul>
     </div>
   </nav>
+</div>
 
 
 

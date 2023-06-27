@@ -18,7 +18,7 @@
             <tr>
               <td><%= order.order_number %></td>
               <td><button type="button" class="btn btn-primary">
-                <%= link_to "Show Details", order_path(order), class: "custom-button" %>
+                <%= link_to "#{t("show_details")}", order_path(order), class: "custom-button" %>
               </button></td>
             </tr>
           <% end %>
