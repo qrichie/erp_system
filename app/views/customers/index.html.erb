@@ -1,11 +1,11 @@
 <div class="container">
-  <h1>Customers</h1>
+  <h1><%= t("customers") %></h1>
   <% @customers.each do |customer| %>
     <div class="card mb-3">
       <div class="card-body">
-        <h5 class="card-title"><%= link_to "Customer ID #{ customer.id } ", customer_path(customer) %></h5>
-        <p class="card-text">User name: <%= customer.user.first_name + ' '+ customer.user.last_name%></p>
-        <p class="card-text">Address: <%= customer.user.address %></p>
+        <h5 class="card-title"><%= link_to "#{t("customer_id")} #{ customer.id } ", customer_path(customer) %></h5>
+        <p class="card-text"><%= t("user_name") %>: <%= customer.user.first_name + ' '+ customer.user.last_name %></p>
+        <p class="card-text"><%= t("address") %>: <%= customer.user.address %></p>
       </div>
     </div>
   <% end %>

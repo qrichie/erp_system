@@ -32,3 +32,8 @@
 en:
   hello: "Hello world"
   create_order: "Create order"
+  customer: "Customer"
+  customer_id: "Customer ID"
+  processor: "Processor"
+  log_in: "log in"
+  register: "register"

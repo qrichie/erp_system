@@ -1,15 +1,15 @@
 <div class="container">
-  <h1>Processors</h1>
+  <h1><%= t("processors") %></h1>
   <% @processors.each do |processor| %>
     <div class="card mb-3", id="orderstable">
       <div class="card-body">
-        <h5 class="card-title"><%= link_to "Processor ID #{ processor.id } ", processor_path(processor) %></h5>
-        <p class="card-text">User name: <%= @users.find_by(id: processor.user_id)&.first_name %>
+        <h5 class="card-title"><%= link_to "#{t("processor")} ID #{ processor.id } ", processor_path(processor) %></h5>
+        <p class="card-text"><%= t("user_name") %>: <%= @users.find_by(id: processor.user_id)&.first_name %>
         <%= @users.find_by(id: processor.user_id)&.last_name %>
         </p>
         <p class="card-text">E-mail: <%= @users.find_by(id: processor.user_id)&.email %></p>
-        <p class="card-text">Birthday: <%= @users.find_by(id: processor.user_id)&.birthday %></p>
-        <p class="card-text">Department: <%= @users.find_by(id: processor.user_id)&.department %></p>
+        <p class="card-text"><%= t("birthday") %>: <%= @users.find_by(id: processor.user_id)&.birthday %></p>
+        <p class="card-text"><%= t("department") %>: <%= @users.find_by(id: processor.user_id)&.department %></p>
         </div>
     </div>
   <% end %>

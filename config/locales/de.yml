@@ -10,17 +10,34 @@ de:
   edit: "Bearbeiten"
   delete: "Löschen"
   show_all_orders: "Alle Aufträge anzeigen"
+  customers: "Kunden"
+  customer: "Kunde"
+  user_name: "Benutzername"
+  first_name: "Vorname"
+  last_name: "Nachname"
+  address: "Adresse"
+  birthday: "Geburtstag"
+  department: "Abteilung"
+  is_customer: "ist Kunde:"
   
   customers: "Kunden"
   processors: "Bearbeiter"
+  processor: "Bearbeiter"
   order_number: "Auftragsnummer"
   
+  show_details: "Details anzeigen"
   create_order: "Auftrag erstellen"
   add_order: "Neuen Auftrag hinzufügen"
   new_order: "Neuer Auftrag"
   show_your_orders: "Zu deinen Aufträgen"
   show_orders_button: "Aufträge anzeigen"
   show_customers_button: "Kunden anzeigen"
+
+  log_in: "einloggen"
+  register: "registrieren"
+  sign_up: "Anmelden"
+  password: "Passwort"
+  password_confirmation: "Passwortbestätigung"
   
   home:
     index:
