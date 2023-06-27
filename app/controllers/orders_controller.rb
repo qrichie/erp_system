@@ -16,13 +16,28 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.processor = User.find_by(id: params[:order][:processor_id]) # Set the processor based on the selected ID
+    @order.processor = User.find_by(id: params[:order][:processor_id]) 
 
-    if @order.save
-      redirect_to @order, notice: 'Order was successfully created.'
-    else
-      flash.now[:alert] = "Alert"
-      render :new
+    respond_to do |format|
+      if @order.save
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend('orders', partial: 'orders/form', locals: {order: @order}) }
+        format.html { redirect_to @order, notice: 'Order was successfully created.' } 
+      else
+        render :new
+      end
+    end
+  end
+
+  def update
+    authorize @order
+
+    respond_to do |format|
+      if @order.update(order_params)
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('orders', partial: 'orders/form', locals: {order: @order}) }
+        format.html { redirect_to @order, notice: 'Order was successfully updated.' } 
+      else
+        render :new
+      end
     end
   end
 
@@ -32,15 +47,7 @@ class OrdersController < ApplicationController
   def edit
   end
 
-  def update
-    authorize @order
 
-    if @order.update(order_params)
-      redirect_to @order, notice: 'Order was successfully updated.'
-    else
-      render :new
-    end
-  end
 
   def destroy
     authorize @order

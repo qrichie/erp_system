@@ -79,3 +79,5 @@ group :test do
 end
 
 gem "simple_form", "~> 5.2"
+
+gem "view_component", "~> 3.3"

@@ -6,7 +6,7 @@
         <h1><%= t("orders") %></h1>
       </div>
       <div class="col text-right my-3 mr-4">
-        <%= link_to t("add_order"), new_order_path, class: "btn btn-success btn-lg" %>
+        <%= link_to t("add_order"), new_order_path, class: "btn btn-success btn-lg", data: {turbo_frame: 'modal'} %>
       </div>
     </div>
     <% @orders.each do |order| %>
@@ -19,35 +19,29 @@
           <p class="card-text"><%= t("end_date") %>: <%= order.end_date %></p>
           <div class="d-flex justify-content-start">
 
-   
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" >
-            Launch demo modal
+          <button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#showordermodal"  data-turbo-frame='modal' >
+            <%= t("show_details") %>
           </button>
-          
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+
+          <div class="modal fade" id="showordermodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle"><%= t("order_details") %></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  <%= turbo_frame_tag "modal" %>
+                  <%= render 'show_form', order: order %>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
           </div>
- 
-
-
-          <%= link_to "Update", edit_order_path(order), class: "btn btn-primary mr-2" %>
+          <%= link_to "Update", edit_order_path(order), class: "btn btn-primary mr-2", data: {turbo_frame: 'modal' } %>
           <%= button_to t("delete"), order_path(order, redirect_to: orders_path), class: "btn btn-danger", method: :delete, data: { confirm: "are you sure?", turbo: "false" } %>
           </div>
         </div>

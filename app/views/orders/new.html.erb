@@ -1,9 +1,4 @@
-<h1 class="h3 modal-header">
-  <%= t("new_order")%>
-</h1>
-
-<div class="modal-body">
-  <%= render "form" %>
-</div>
-
+<%= render TurboModalComponent.new(title: "New order") do %>
+  <%= render "form", order: @order %>
+<% end %>
 
