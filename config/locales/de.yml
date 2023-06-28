@@ -29,6 +29,7 @@ de:
   create_order: "Auftrag erstellen"
   add_order: "Neuen Auftrag hinzufügen"
   new_order: "Neuer Auftrag"
+  edit_order: "Auftrag bearbeiten"
   show_your_orders: "Zu deinen Aufträgen"
   show_orders_button: "Aufträge anzeigen"
   show_customers_button: "Kunden anzeigen"
