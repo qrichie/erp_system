@@ -8,5 +8,5 @@
     <%= form.input :end_date, label: t(".end_date"), as: :date, class: "form-group" %>
     <%= form.input :prize, label: t("prize"), class: "form-group" %>
     <%= form.input :currency, label: t("currency"), as: :select, collection: Currency.currencies.keys, class: "form-group" %>
-    <%= form.button :submit, value: t("create_order"), class: "btn btn-primary" %>
+    <%= form.button :submit, value: t("submit"), class: "btn btn-primary" %>
 <% end %>

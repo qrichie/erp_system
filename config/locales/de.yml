@@ -33,6 +33,7 @@ de:
   show_your_orders: "Zu deinen Aufträgen"
   show_orders_button: "Aufträge anzeigen"
   show_customers_button: "Kunden anzeigen"
+  submit: "Abschicken"
 
   log_in: "einloggen"
   register: "registrieren"

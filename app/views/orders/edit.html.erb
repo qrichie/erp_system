@@ -1,3 +1,6 @@
-<%= render TurboModalComponent.new(title: t("edit_order")) do %>
-  <%= render "form", order: @order %>
+<%= turbo_frame_tag "modal" do %>
+  <h1 class="my-4">
+      <%= t("edit_order") %>
+  </h1>
+  <%= render "orders/form", order: @order %>
 <% end %>

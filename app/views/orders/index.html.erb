@@ -9,6 +9,8 @@
         <%= link_to t("add_order"), new_order_path, class: "btn btn-success btn-lg", data: {turbo_frame: 'modal'} %>
       </div>
     </div>
+
+
     <% @orders.each do |order| %>
       <div class="card mb-3", id="orderstable">
         <div class="card-body">

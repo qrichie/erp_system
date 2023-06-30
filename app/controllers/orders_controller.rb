@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.turbo_stream { render turbo_stream: turbo_stream.prepend('orders', partial: 'orders/form', locals: {order: @order}) }
+        format.turbo_stream
         format.html { redirect_to @order, notice: 'Order was successfully created.' } 
       else
         render :new
