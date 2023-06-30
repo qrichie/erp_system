@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "modal" do %>
-  <div class="container col-8">
+  <div class="container">
     <div class="card">
       <div class="card-body">
         <h1 class="card-title"><%= t(".order_details") %></h1>
@@ -10,8 +10,6 @@
           <%= button_to t("delete"), order_path(@order), class: "btn btn-danger", method: :delete, data: { turbo: "false" } %>
           </div>
           <div class="d-flex justify-content-end">
-            <%= link_to t("show_all_orders"), orders_path, class: "btn btn-secondary mt-2" %>
-          </div>
         </div>
       </div>
     </div>

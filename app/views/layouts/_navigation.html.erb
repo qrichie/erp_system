@@ -42,11 +42,11 @@
         </ul>
           <a class="nav-link">
             <% if signed_in? %>
-              <%= link_to current_user.email, edit_user_registration_path, class: "ml-3" %>
+              <%= link_to current_user.email, edit_user_registration_path, class: "ml-3", data: { turbo_frame: "modal" } %>
               <%= button_to "Log out", destroy_user_session_path, class: "btn btn-primary ml-2", method: :delete, data: { turbo: "false" } %>
             <% else %>
                 <%= link_to "#{t("log_in")}", new_user_session_path, class: "btn btn-primary" %>
-                <%= link_to "#{t("register")}", new_user_registration_path, class: "btn btn-primary" %>
+                <%= link_to "#{t("register")}", new_user_registration_path, class: "btn btn-primary", data: { turbo_frame: "modal"} %>
             <% end %>
           </a>
         </ul>
